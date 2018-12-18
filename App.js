@@ -47,3 +47,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+//God was here
