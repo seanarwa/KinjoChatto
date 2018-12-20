@@ -7,12 +7,15 @@
  */
 
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import Emoji from '../components/main/chat/Emoji.js';
 
 export default class Main extends Component<{}> {
   render() {
     return (
+      <View>
       <Text>Hello World</Text>
+      </View>
     );
   }
 }
