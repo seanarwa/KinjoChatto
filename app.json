@@ -1,4 +1,5 @@
 {
   "name": "KinjoChatto",
-  "displayName": "KinjoChatto"
+  "displayName": "KinjoChatto",
+  "debug": true
 }
