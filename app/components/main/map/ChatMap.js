@@ -15,8 +15,8 @@ import { name as appName } from '../../../../app.json';
             region: {
               latitude: 33.6404952,
               longitude: -117.8442962,
-              latitudeDelta: 0.0300,
-              longitudeDelta: 0.0300,
+              latitudeDelta: 0.0500,
+              longitudeDelta: 0.0200,
 						},
 						circle: {
 							latitude: 33.6404952,
@@ -25,17 +25,17 @@ import { name as appName } from '../../../../app.json';
             chatRooms: [
               {
                 title: 'WEST CHATROOM',
-                description: 'this is where luke shits on his face',
+                description: 'this is where luke \nshits on his face',
                 coordinate: { latitude: 33.603317, longitude: -117.705430 }
               },
               {
                 title: 'NORTHEAST CHATROOM',
-                description: 'this is where luke shits on his face again',
+                description: 'this is where luke \nshits on his face again',
                 coordinate: { latitude: 33.614468, longitude: -117.687907 }
               },
               {
                 title: 'SOUTHEAST CHATROOM',
-                description: 'this is where luke shits on his face like the tenth time',
+                description: 'this is where luke shits on \nhis face like the tenth time',
                 coordinate: { latitude: 33.599876, longitude: -117.688979 }
               }
             ]
