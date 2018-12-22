@@ -21,7 +21,7 @@ import { Marker } from 'react-native-maps';
   }
 
   onCalloutPress() {
-
+    this.props.navigator.navigate('Chat');
   }
 
 	render() {

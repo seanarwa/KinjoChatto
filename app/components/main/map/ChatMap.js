@@ -98,7 +98,7 @@ import { name as appName } from '../../../../app.json';
 
 	render() {
     const ChatRoomMarkers = this.state.chatRooms.map((chatRoom, key) =>
-      <ChatRoomMarker key={key} chatRoom={chatRoom} />
+      <ChatRoomMarker key={key} navigator={this.props.navigator} chatRoom={chatRoom} />
     );
 
     return (

@@ -16,7 +16,7 @@ import MyChat from '../components/main/chat/Chat.js';
 export default class Main extends Component<{}> {
   render() {
     return (
-        <MyChat/>
+        <ChatMap navigator={this.props.navigation} />
     );
   }
 }
