@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':amazon-cognito-identity-js')
     compile project(':react-native-gesture-handler')
     compile project(':react-native-geolocation-service')
     compile project(':react-native-maps')

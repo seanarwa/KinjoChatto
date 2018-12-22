@@ -1,0 +1,20 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "injohatto-20181222040708-authRole",
+			"UnauthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "injohatto-20181222040708-deployment",
+			"UnauthRoleName": "injohatto-20181222040708-unauthRole",
+			"StackName": "injohatto-20181222040708",
+			"StackId": "arn:aws:cloudformation:us-west-2:689668396068:stack/injohatto-20181222040708/1ad1b6d0-05e2-11e9-9808-0650fec6e554"
+		}
+	},
+	"auth": {
+		"cognitoe8454242": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
