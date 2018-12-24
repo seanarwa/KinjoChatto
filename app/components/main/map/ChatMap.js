@@ -37,7 +37,14 @@ import { name as appName } from '../../../../app.json';
                 title: 'SOUTHEAST CHATROOM',
                 description: 'this is where luke shits on \nhis face like the tenth time',
                 coordinate: { latitude: 33.599876, longitude: -117.688979 }
-              }
+              },
+              {
+                title: 'じゅんやちゃんの家',
+                description: 'this is where luke shits on \nhis face like the tenth time',
+                coordinate: { latitude: 33.658531, longitude: -117.804689 }
+              },
+
+
             ]
 					};
 	}
@@ -107,10 +114,10 @@ import { name as appName } from '../../../../app.json';
         provider={PROVIDER_GOOGLE}
         region={this.state.region}
         initialRegion={this.state.region}
-        zoomEnabled={false}
-        scrollEnabled={false}
         rotateEnabled={false}
-        moveOnMarkerPress={false}
+        zoomEnabled
+        scrollEnabled
+        moveOnMarkerPress
         showsUserLocation
         followsUserLocation
         loadingEnabled
