@@ -43,6 +43,11 @@ import { name as appName } from '../../../../app.json';
                 description: 'this is where luke shits on \nhis face like the tenth time',
                 coordinate: { latitude: 33.658531, longitude: -117.804689 }
               },
+              {
+                title: 'BigDick NikDik',
+                description: 'Lair of the Legendary Virgin NikDik',
+                coordinate: { latitude: 33.649828, longitude: -117.820746 }
+              },
 
 
             ]
