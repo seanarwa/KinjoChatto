@@ -1,14 +1,53 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "injohatto-20181222040708-authRole",
-            "UnauthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-authRole",
-            "Region": "us-west-2",
-            "DeploymentBucketName": "injohatto-20181222040708-deployment",
-            "UnauthRoleName": "injohatto-20181222040708-unauthRole",
-            "StackName": "injohatto-20181222040708",
-            "StackId": "arn:aws:cloudformation:us-west-2:689668396068:stack/injohatto-20181222040708/1ad1b6d0-05e2-11e9-9808-0650fec6e554"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "injohatto-20181222040708-authRole",
+			"UnauthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "injohatto-20181222040708-deployment",
+			"UnauthRoleName": "injohatto-20181222040708-unauthRole",
+			"StackName": "injohatto-20181222040708",
+			"StackId": "arn:aws:cloudformation:us-west-2:689668396068:stack/injohatto-20181222040708/1ad1b6d0-05e2-11e9-9808-0650fec6e554"
+		}
+	},
+	"auth": {
+		"cognitoe8454242": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/auth/cognitoe8454242-cloudformation-template.yml",
+				"logicalId": "authcognitoe8454242"
+			},
+			"lastPushTimeStamp": "2018-12-26T02:34:06.487Z",
+			"output": {
+				"AppClientSecret": "11grln9idubta47eg6vfaa4q8khnlta2ujf2fk8p09nav1bdqlq6",
+				"UserPoolId": "us-west-2_NQP8RYOak",
+				"AppClientIDWeb": "10unhiso9gc7fi9f80l1ckr63h",
+				"AppClientID": "41i678p15ml9dqhk7hhhnn9lfn",
+				"IdentityPoolId": "us-west-2:69d58a04-28b0-4bbe-949e-adadb8150115",
+				"IdentityPoolName": "cognitoe8454242_identitypool_e8454242",
+				"UserPoolName": "cognitoe8454242_userpool_e8454242"
+			},
+			"lastPushDirHash": "sER5YxJzTWcZaLH8DWkTT4Ztud8="
+		}
+	},
+	"api": {
+		"kinjochatto": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "API_KEY",
+				"GraphQLAPIIdOutput": "uiwcmqf7i5b63g2id3vbmguzxi",
+				"GraphQLAPIEndpointOutput": "https://cqjm5zlg4nge5d4ajno5ccsdhq.appsync-api.us-west-2.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-csojgajmfvf2lm42tjfgtptmo4"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apikinjochatto"
+			},
+			"lastPushTimeStamp": "2018-12-26T02:34:06.487Z",
+			"lastPushDirHash": "+/5KpHAuBLcMZzDoBipuJ7wBJBU="
+		}
+	}
 }
