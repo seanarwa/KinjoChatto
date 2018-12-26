@@ -9,6 +9,8 @@ type ChatRoom @model {
   id: ID!
   messages(after: String, first: Int): MessageConnection
   name: String!
+  longitude: String
+  latitude: String
 }
 
 type Message @model {

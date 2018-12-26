@@ -6,53 +6,53 @@ import Permissions from 'react-native-permissions';
 import ChatRoomMarker from './ChatRoomMarker.js';
 import { name as appName } from '../../../../app.json';
 
+import { API, graphqlOperation } from 'aws-amplify';
+import { listChatRooms } from '../../../../src/graphql/queries.js';
+
  type Props = {};
  export default class ChatMap extends Component<Props> {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-            region: {
-              latitude: 33.6404952,
-              longitude: -117.8442962,
-              latitudeDelta: 0.0500,
-              longitudeDelta: 0.0200,
-						},
-						circle: {
-							latitude: 33.6404952,
-							longitude: -117.8442962
-						},
-            chatRooms: [
-              {
-                title: 'WEST CHATROOM',
-                description: 'this is where luke \nshits on his face',
-                coordinate: { latitude: 33.603317, longitude: -117.705430 }
-              },
-              {
-                title: 'NORTHEAST CHATROOM',
-                description: 'this is where luke \nshits on his face again',
-                coordinate: { latitude: 33.614468, longitude: -117.687907 }
-              },
-              {
-                title: 'SOUTHEAST CHATROOM',
-                description: 'this is where luke shits on \nhis face like the tenth time',
-                coordinate: { latitude: 33.599876, longitude: -117.688979 }
-              },
-              {
-                title: 'じゅんやちゃんの家',
-                description: 'this is where luke shits on \nhis face like the tenth time',
-                coordinate: { latitude: 33.658531, longitude: -117.804689 }
-              },
-              {
-                title: 'BigDick NikDik',
-                description: 'Lair of the Legendary Virgin NikDik',
-                coordinate: { latitude: 33.649828, longitude: -117.820746 }
-              },
+   state = {
+         region: {
+           latitude: 33.6404952,
+           longitude: -117.8442962,
+           latitudeDelta: 0.0500,
+           longitudeDelta: 0.0200,
+         },
+         circle: {
+           latitude: 33.6404952,
+           longitude: -117.8442962
+         },
+         chatRooms: [
+           // {
+           //   title: 'WEST CHATROOM',
+           //   description: 'this is where luke \nshits on his face',
+           //   coordinate: { latitude: 33.603317, longitude: -117.705430 }
+           // },
+           // {
+           //   title: 'NORTHEAST CHATROOM',
+           //   description: 'this is where luke \nshits on his face again',
+           //   coordinate: { latitude: 33.614468, longitude: -117.687907 }
+           // },
+           // {
+           //   title: 'SOUTHEAST CHATROOM',
+           //   description: 'this is where luke shits on \nhis face like the tenth time',
+           //   coordinate: { latitude: 33.599876, longitude: -117.688979 }
+           // },
+           // {
+           //   title: 'じゅんやちゃんの家',
+           //   description: 'this is where luke shits on \nhis face like the tenth time',
+           //   coordinate: { latitude: 33.658531, longitude: -117.804689 }
+           // },
+           // {
+           //   title: 'BigDick NikDik',
+           //   description: 'Lair of the Legendary Virgin NikDik',
+           //   coordinate: { latitude: 33.649828, longitude: -117.820746 }
+           // },
 
 
-            ]
-					};
-	}
+         ]
+       };
 
 	componentDidMount() {
     this.checkPermissions();
@@ -72,16 +72,13 @@ import { name as appName } from '../../../../app.json';
 				}));
 			},
 			(error) => {
-				console.warn(`geolocation failure: ${error.message}`);
+				console.warn('geolocation failure: ' + error.message);
 				this.setState({ error: error.message });
 			},
 			{ enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
 		);
+    this.fetchData();
 	}
-
-  setChatRoomMarkers(chatRooms) {
-    this.setState({ chatRooms });
-  }
 
   checkPermissions() {
     try {
@@ -106,6 +103,15 @@ import { name as appName } from '../../../../app.json';
     } catch (err) {
       console.warn(err);
     }
+  }
+
+  fetchData() {
+    (async () => {
+        const data = await API.graphql(graphqlOperation(listChatRooms));
+        this.setState({
+            chatRooms: data.data.listChatRooms.items
+        });
+    })();
   }
 
 	render() {

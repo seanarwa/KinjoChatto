@@ -41,6 +41,8 @@ export const onCreateChatRoom = `subscription OnCreateChatRoom {
       nextToken
     }
     name
+    longitude
+    latitude
   }
 }
 `;
@@ -60,6 +62,8 @@ export const onUpdateChatRoom = `subscription OnUpdateChatRoom {
       nextToken
     }
     name
+    longitude
+    latitude
   }
 }
 `;
@@ -79,6 +83,8 @@ export const onDeleteChatRoom = `subscription OnDeleteChatRoom {
       nextToken
     }
     name
+    longitude
+    latitude
   }
 }
 `;

@@ -40,6 +40,8 @@ export const getChatRoom = `query GetChatRoom($id: ID!) {
       nextToken
     }
     name
+    longitude
+    latitude
   }
 }
 `;
@@ -56,6 +58,8 @@ export const listChatRooms = `query ListChatRooms(
         nextToken
       }
       name
+      longitude
+      latitude
     }
     nextToken
   }

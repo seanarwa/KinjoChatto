@@ -41,6 +41,8 @@ export const createChatRoom = `mutation CreateChatRoom($input: CreateChatRoomInp
       nextToken
     }
     name
+    longitude
+    latitude
   }
 }
 `;
@@ -60,6 +62,8 @@ export const updateChatRoom = `mutation UpdateChatRoom($input: UpdateChatRoomInp
       nextToken
     }
     name
+    longitude
+    latitude
   }
 }
 `;
@@ -79,6 +83,8 @@ export const deleteChatRoom = `mutation DeleteChatRoom($input: DeleteChatRoomInp
       nextToken
     }
     name
+    longitude
+    latitude
   }
 }
 `;

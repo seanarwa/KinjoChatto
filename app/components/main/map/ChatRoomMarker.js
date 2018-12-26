@@ -5,15 +5,18 @@ import { Marker } from 'react-native-maps';
  type Props = {};
  export default class ChatRoomMarker extends Component<Props> {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-            show: false
-					};
-	}
+   state = {
+     createdAt: this.props.chatRoom.createdAt,
+     id: this.props.chatRoom.id,
+     title: this.props.chatRoom.name,
+     coordinate:  {
+                    latitude: parseFloat(this.props.chatRoom.latitude),
+                    longitude: parseFloat(this.props.chatRoom.longitude)
+                  }
+   }
 
 	componentDidMount() {
-
+    
 	}
 
   onPress() {
@@ -27,9 +30,8 @@ import { Marker } from 'react-native-maps';
 	render() {
     return (
       <Marker
-        coordinate={this.props.chatRoom.coordinate}
-        title={this.props.chatRoom.title}
-        description={this.props.chatRoom.description}
+        coordinate={this.state.coordinate}
+        title={this.state.title}
         onPress={this.onPress.bind(this)}
         onCalloutPress={this.onCalloutPress.bind(this)}
       />
