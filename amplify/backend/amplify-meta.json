@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/auth/cognitoe8454242-cloudformation-template.yml",
 				"logicalId": "authcognitoe8454242"
 			},
-			"lastPushTimeStamp": "2018-12-26T02:34:06.487Z",
+			"lastPushTimeStamp": "2018-12-26T21:30:26.467Z",
 			"output": {
 				"AppClientSecret": "11grln9idubta47eg6vfaa4q8khnlta2ujf2fk8p09nav1bdqlq6",
 				"UserPoolId": "us-west-2_NQP8RYOak",
@@ -40,14 +40,17 @@
 				"securityType": "AMAZON_COGNITO_USER_POOLS",
 				"GraphQLAPIIdOutput": "uiwcmqf7i5b63g2id3vbmguzxi",
 				"GraphQLAPIEndpointOutput": "https://cqjm5zlg4nge5d4ajno5ccsdhq.appsync-api.us-west-2.amazonaws.com/graphql",
-				"GraphQLAPIKeyOutput": "da2-csojgajmfvf2lm42tjfgtptmo4"
+				"GraphQLAPIKeyOutput": "da2-csojgajmfvf2lm42tjfgtptmo4",
+				"AuthCognitoUserPoolIdOutput": "us-west-2_NQP8RYOak",
+				"AuthCognitoUserPoolNativeClientId": "See UserPool: us-west-2_NQP8RYOak",
+				"AuthCognitoUserPoolJSClientId": "See UserPool: us-west-2_NQP8RYOak"
 			},
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apikinjochatto"
 			},
-			"lastPushTimeStamp": "2018-12-26T02:34:06.487Z",
-			"lastPushDirHash": "+/5KpHAuBLcMZzDoBipuJ7wBJBU="
+			"lastPushTimeStamp": "2018-12-26T21:30:28.654Z",
+			"lastPushDirHash": "IujFyYi53U1vOSVlC09ZAYjiPGk="
 		}
 	}
 }

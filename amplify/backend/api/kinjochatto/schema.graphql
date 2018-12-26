@@ -3,3 +3,24 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type ChatRoom @model {
+  createdAt: String
+  id: ID!
+  messages(after: String, first: Int): MessageConnection
+  name: String!
+}
+
+type Message @model {
+	content: String!
+	chatRoomId: ID!
+	createdAt: String
+	id: ID!
+	isSent: Boolean
+	sender: String
+}
+
+type MessageConnection @model {
+	messages: [Message]
+	nextToken: String
+}

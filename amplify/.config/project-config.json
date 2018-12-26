@@ -1,9 +1,9 @@
 {
     "projectName": "KinjoChatto",
-    "projectPath": "C:\\Users\\seana\\Desktop\\React Native Projects\\KinjoChatto",
+    "projectPath": "C:\\Users\\cad\\Desktop\\Sean Files\\KinjoChatto",
     "defaultEditor": "atom",
     "frontendHandler": {
-        "javascript": "C:\\Users\\seana\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-frontend-javascript"
+        "javascript": "C:\\Users\\cad\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-frontend-javascript"
     },
     "javascript": {
         "framework": "react-native",
@@ -15,6 +15,6 @@
         }
     },
     "providers": {
-        "awscloudformation": "C:\\Users\\seana\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-provider-awscloudformation"
+        "awscloudformation": "C:\\Users\\cad\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-provider-awscloudformation"
     }
 }
