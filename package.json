@@ -21,6 +21,7 @@
     "react-native-permissions": "^1.1.1",
     "react-navigation": "^3.0.9",
     "switch-button-react-native": "^1.0.3",
+    "tcomb-form-native": "^0.6.20",
     "yarn": "^1.12.3"
   },
   "devDependencies": {
