@@ -16,7 +16,7 @@ import { Marker } from 'react-native-maps';
    }
 
 	componentDidMount() {
-    
+
 	}
 
   onPress() {
@@ -24,7 +24,12 @@ import { Marker } from 'react-native-maps';
   }
 
   onCalloutPress() {
-    this.props.navigator.navigate('Chat');
+    this.props.navigator.navigate('Chat',
+    {
+      title: this.props.chatRoom.name,
+      chatRoomId: this.props.chatRoom.id
+    }
+    );
   }
 
 	render() {

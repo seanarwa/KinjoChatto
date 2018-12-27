@@ -23,7 +23,16 @@ export default class MyChat extends React.Component {
         });
       }
 
-      render() {
-        return <GiftedChat messages={this.state.messages} />;
-      }
+    onSend(messages = []) {
+      this.setState(previousState => ({
+        messages: GiftedChat.append(previousState.messages, messages),
+      }))
     }
+
+    render() {
+      return <GiftedChat
+                messages={this.state.messages}
+                onSend={messages => this.onSend(messages)}
+                />;
+    }
+}
