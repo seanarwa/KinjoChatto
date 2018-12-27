@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { GiftedChat } from "react-native-gifted-chat";
 
 import { API, graphqlOperation } from 'aws-amplify';
-import { getChatRoom } from '../../../../src/graphql/queries.js';
+import { getChatRoom } from '../../src/graphql/queries.js';
 
 export default class MyChat extends React.Component {
       state = {
