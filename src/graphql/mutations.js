@@ -29,17 +29,6 @@ export const createChatRoom = `mutation CreateChatRoom($input: CreateChatRoomInp
   createChatRoom(input: $input) {
     createdAt
     id
-    messages {
-      messages {
-        content
-        chatRoomId
-        createdAt
-        id
-        isSent
-        sender
-      }
-      nextToken
-    }
     name
     longitude
     latitude
@@ -50,17 +39,6 @@ export const updateChatRoom = `mutation UpdateChatRoom($input: UpdateChatRoomInp
   updateChatRoom(input: $input) {
     createdAt
     id
-    messages {
-      messages {
-        content
-        chatRoomId
-        createdAt
-        id
-        isSent
-        sender
-      }
-      nextToken
-    }
     name
     longitude
     latitude
@@ -71,17 +49,6 @@ export const deleteChatRoom = `mutation DeleteChatRoom($input: DeleteChatRoomInp
   deleteChatRoom(input: $input) {
     createdAt
     id
-    messages {
-      messages {
-        content
-        chatRoomId
-        createdAt
-        id
-        isSent
-        sender
-      }
-      nextToken
-    }
     name
     longitude
     latitude
@@ -118,48 +85,6 @@ export const deleteMessage = `mutation DeleteMessage($input: DeleteMessageInput!
     id
     isSent
     sender
-  }
-}
-`;
-export const createMessageConnection = `mutation CreateMessageConnection($input: CreateMessageConnectionInput!) {
-  createMessageConnection(input: $input) {
-    messages {
-      content
-      chatRoomId
-      createdAt
-      id
-      isSent
-      sender
-    }
-    nextToken
-  }
-}
-`;
-export const updateMessageConnection = `mutation UpdateMessageConnection($input: UpdateMessageConnectionInput!) {
-  updateMessageConnection(input: $input) {
-    messages {
-      content
-      chatRoomId
-      createdAt
-      id
-      isSent
-      sender
-    }
-    nextToken
-  }
-}
-`;
-export const deleteMessageConnection = `mutation DeleteMessageConnection($input: DeleteMessageConnectionInput!) {
-  deleteMessageConnection(input: $input) {
-    messages {
-      content
-      chatRoomId
-      createdAt
-      id
-      isSent
-      sender
-    }
-    nextToken
   }
 }
 `;

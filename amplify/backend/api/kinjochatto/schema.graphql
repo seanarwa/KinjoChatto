@@ -7,7 +7,6 @@ type Todo @model {
 type ChatRoom @model {
   createdAt: String
   id: ID!
-  messages(after: String, first: Int): MessageConnection
   name: String!
   longitude: String
   latitude: String
@@ -20,9 +19,4 @@ type Message @model {
 	id: ID!
 	isSent: Boolean
 	sender: String
-}
-
-type MessageConnection @model {
-	messages: [Message]
-	nextToken: String
 }

@@ -29,17 +29,6 @@ export const onCreateChatRoom = `subscription OnCreateChatRoom {
   onCreateChatRoom {
     createdAt
     id
-    messages {
-      messages {
-        content
-        chatRoomId
-        createdAt
-        id
-        isSent
-        sender
-      }
-      nextToken
-    }
     name
     longitude
     latitude
@@ -50,17 +39,6 @@ export const onUpdateChatRoom = `subscription OnUpdateChatRoom {
   onUpdateChatRoom {
     createdAt
     id
-    messages {
-      messages {
-        content
-        chatRoomId
-        createdAt
-        id
-        isSent
-        sender
-      }
-      nextToken
-    }
     name
     longitude
     latitude
@@ -71,17 +49,6 @@ export const onDeleteChatRoom = `subscription OnDeleteChatRoom {
   onDeleteChatRoom {
     createdAt
     id
-    messages {
-      messages {
-        content
-        chatRoomId
-        createdAt
-        id
-        isSent
-        sender
-      }
-      nextToken
-    }
     name
     longitude
     latitude
@@ -118,48 +85,6 @@ export const onDeleteMessage = `subscription OnDeleteMessage {
     id
     isSent
     sender
-  }
-}
-`;
-export const onCreateMessageConnection = `subscription OnCreateMessageConnection {
-  onCreateMessageConnection {
-    messages {
-      content
-      chatRoomId
-      createdAt
-      id
-      isSent
-      sender
-    }
-    nextToken
-  }
-}
-`;
-export const onUpdateMessageConnection = `subscription OnUpdateMessageConnection {
-  onUpdateMessageConnection {
-    messages {
-      content
-      chatRoomId
-      createdAt
-      id
-      isSent
-      sender
-    }
-    nextToken
-  }
-}
-`;
-export const onDeleteMessageConnection = `subscription OnDeleteMessageConnection {
-  onDeleteMessageConnection {
-    messages {
-      content
-      chatRoomId
-      createdAt
-      id
-      isSent
-      sender
-    }
-    nextToken
   }
 }
 `;

@@ -3,49 +3,87 @@ import { View, Text } from 'react-native';
 import { GiftedChat } from "react-native-gifted-chat";
 
 import { API, graphqlOperation } from 'aws-amplify';
-import { getChatRoom } from '../../src/graphql/queries.js';
+import { listMessages } from '../../src/graphql/queries.js';
+import { createMessage } from '../../src/graphql/mutations.js';
 
-export default class MyChat extends React.Component {
+export default class Chat extends React.Component {
       state = {
-        messages: []
+        messages: [],
+        nextToken: null
       };
 
-      loadMessage(chatRoomId) {
+      fetchMessages() {
         (async () => {
-            const data = await API.graphql(graphqlOperation(getChatRoom(this.props.getParam('chatRoomId', 'NO-ID'))));
+            const data = await API.graphql(graphqlOperation(listMessages, {
+              filter: {
+                chatRoomId: {
+                  eq: this.getParams().chatRoomId
+                }
+              },
+              limit: 10,
+              // nextToken: this.state.nextToken
+            }));
             this.setState({
-                chatRoom: data.data.getChatRoom
+                messages: data.data.listMessages.items,
+                // nextToken: data.data.listMessages.nextToken
             });
         })();
       }
 
-      sendMessage() {
-
+      sendMessage(message) {
+        (async () => {
+            const data = await API.graphql(graphqlOperation(createMessage, {
+              input: {
+                content: message,
+                chatRoomId: this.getParams().chatRoomId
+              }
+            }));
+        })();
       }
 
-      componentDidMount() {
-        this.setState({
-          messages: [
-            {
-              _id: 1,
-              text: "I think we passed the first step of the tutorial. We will now need a Pusher account!",
-              createdAt: new Date(),
-              user: {
-                _id: 1,
-                name: "React Native",
-                avatar: "https://placeimg.com/140/140/any"
-              }
-            }
-          ]
+      getParams() {
+        params = {}
+        const { navigation } = this.props;
+        const chatRoomId = navigation.getParam('chatRoomId', 'NO-ID');
+        const title = navigation.getParam('title', 'NO-TITLE');
+        return ({
+          title,
+          chatRoomId
         });
       }
 
+      loadMessages() {
+        const messages = [];
+        this.state.messages.forEach( (message) => {
+          messages.push({
+            _id: message.id,
+            text: message.content,
+            createdAt: message.createdAt,
+            user: {
+              _id: 1,
+              name: "React Native",
+              avatar: "https://placeimg.com/140/140/any"
+            }
+          });
+        });
+        return messages;
+      }
+
+      componentDidMount() {
+        this.fetchMessages();
+      }
+
       render() {
+
+        const messages = this.loadMessages();
+
         return (
-          <View>
-            <Text>Name: {this.state.chatRoom.name}</Text>
-          </View>
-          // <GiftedChat messages={this.state.messages} />
+          <GiftedChat
+            loadEarlier
+            messages={messages}
+            onSend={messages => this.sendMessage(messages[0].text)}
+            onLoadEarlier={this.fetchMessages()}
+          />
         );
       }
     }

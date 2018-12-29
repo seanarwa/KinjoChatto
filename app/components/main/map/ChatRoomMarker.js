@@ -25,10 +25,10 @@ import { Marker } from 'react-native-maps';
 
   onCalloutPress() {
     this.props.navigator.navigate('Chat',
-    {
-      title: this.props.chatRoom.name,
-      chatRoomId: this.props.chatRoom.id
-    }
+      {
+        title: this.props.chatRoom.name,
+        chatRoomId: this.props.chatRoom.id
+      }
     );
   }
 

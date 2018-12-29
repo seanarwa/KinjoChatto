@@ -140,10 +140,10 @@
 							"Outputs.UserPoolId"
 						]
 					},
-					"schemaGraphql": "s3://injohatto-20181222040708-deployment/amplify-appsync-files/schema.graphql.1545860100383",
+					"schemaGraphql": "s3://injohatto-20181222040708-deployment/amplify-appsync-files/schema.graphql.1546042165226",
 					"ResolverBucket": "injohatto-20181222040708-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1545860100383"
+					"DeploymentTimestamp": "1546042165226"
 				}
 			}
 		}
