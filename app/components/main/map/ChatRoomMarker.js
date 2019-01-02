@@ -33,13 +33,18 @@ import { Marker } from 'react-native-maps';
   }
 
 	render() {
-    return (
-      <Marker
-        coordinate={this.state.coordinate}
-        title={this.state.title}
-        onPress={this.onPress.bind(this)}
-        onCalloutPress={this.onCalloutPress.bind(this)}
-      />
-    );
+    if (!isNaN(this.state.coordinate.latitude)
+      && !isNaN(this.state.coordinate.longitude)) {
+      return (
+        <Marker
+          coordinate={this.state.coordinate}
+          title={this.state.title}
+          onPress={this.onPress.bind(this)}
+          onCalloutPress={this.onCalloutPress.bind(this)}
+        />
+      );
+    }
+
+    return <View />;
 	}
  }

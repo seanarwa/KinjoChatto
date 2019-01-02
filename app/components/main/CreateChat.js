@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, Button, View, StyleSheet } from 'react-native';
+import { Text, Button, View, StyleSheet } from 'react-native';
 import t from 'tcomb-form-native';
 
 import MapView, { PROVIDER_GOOGLE, Circle } from 'react-native-maps';
@@ -34,6 +34,15 @@ export default class CreateChat extends Component {
       error:null,
     };
 
+  handleSubmit() {
+    (async () => {
+        const data = await API.graphql(graphqlOperation(listChatRooms));
+        this.setState({
+            chatRooms: data.data.listChatRooms.items
+        });
+    })();
+  }
+
   //handleSubmit will run when button is pressed to create a new chat
   //Get current lat/lng and get name of chat and push to database
   handleSubmit = async () => {
@@ -52,7 +61,11 @@ export default class CreateChat extends Component {
            error: null,
          });
        },
-       (error) => this.setState({ error: error.message }),
+       (error) => {
+         if (error) {
+           this.setState({ error: error.message });
+         }
+       },
        { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
      );
 
@@ -64,7 +77,7 @@ export default class CreateChat extends Component {
     };
 
     console.log("values:", value);
-    
+
     const createNewChatRoom = await API.graphql(graphqlOperation(mutations.createChatRoom, {input: createChat}));
     console.log("hello");
     console.log(createChat);
@@ -73,15 +86,7 @@ export default class CreateChat extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Form 
-      		ref={c => this._form = c}
-      		type={Chat}
-      		options={options}
-    		/> 
-		    <Button
-          title="Create Chat!"
-          onPress={this.handleSubmit}
-        />
+        <Text>Create Chat Component has been moved to app/views/NewChat.js</Text>
       </View>
     );
   }

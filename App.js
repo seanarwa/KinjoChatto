@@ -44,7 +44,7 @@ const AppContainer = createAppContainer(debug ? TestAppNavigator : AppNavigator)
 
 class App extends React.Component {
   render() {
-    return <TestMain />;
+    return <AppContainer />;
   }
 }
 

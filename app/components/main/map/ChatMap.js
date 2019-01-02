@@ -13,46 +13,18 @@ import { listChatRooms } from '../../../../src/graphql/queries.js';
  export default class ChatMap extends Component<Props> {
 
    state = {
-         region: {
-           latitude: 33.6404952,
-           longitude: -117.8442962,
-           latitudeDelta: 0.0500,
-           longitudeDelta: 0.0200,
-         },
-         circle: {
-           latitude: 33.6404952,
-           longitude: -117.8442962
-         },
-         chatRooms: [
-           // {
-           //   title: 'WEST CHATROOM',
-           //   description: 'this is where luke \nshits on his face',
-           //   coordinate: { latitude: 33.603317, longitude: -117.705430 }
-           // },
-           // {
-           //   title: 'NORTHEAST CHATROOM',
-           //   description: 'this is where luke \nshits on his face again',
-           //   coordinate: { latitude: 33.614468, longitude: -117.687907 }
-           // },
-           // {
-           //   title: 'SOUTHEAST CHATROOM',
-           //   description: 'this is where luke shits on \nhis face like the tenth time',
-           //   coordinate: { latitude: 33.599876, longitude: -117.688979 }
-           // },
-           // {
-           //   title: 'じゅんやちゃんの家',
-           //   description: 'this is where luke shits on \nhis face like the tenth time',
-           //   coordinate: { latitude: 33.658531, longitude: -117.804689 }
-           // },
-           // {
-           //   title: 'BigDick NikDik',
-           //   description: 'Lair of the Legendary Virgin NikDik',
-           //   coordinate: { latitude: 33.649828, longitude: -117.820746 }
-           // },
-
-
-         ]
-       };
+    region: {
+     latitude: 33.6404952,
+     longitude: -117.8442962,
+     latitudeDelta: 0.0500,
+     longitudeDelta: 0.0200,
+    },
+    circle: {
+     latitude: 33.6404952,
+     longitude: -117.8442962
+    },
+    chatRooms: []
+  };
 
 	componentDidMount() {
     this.checkPermissions();
@@ -115,8 +87,8 @@ import { listChatRooms } from '../../../../src/graphql/queries.js';
   }
 
 	render() {
-    const ChatRoomMarkers = this.state.chatRooms.map((chatRoom, key) =>
-      <ChatRoomMarker key={key} navigator={this.props.navigator} chatRoom={chatRoom} />
+    const ChatRoomMarkers = this.state.chatRooms.map((chatRoom) =>
+      <ChatRoomMarker key={chatRoom.id} navigator={this.props.navigator} chatRoom={chatRoom} />
     );
 
     return (
