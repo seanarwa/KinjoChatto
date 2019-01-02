@@ -23,73 +23,51 @@ const options = {
   },
 };
 console.log("Class entered");
+
+
 export default class CreateChat extends Component {
 
-  /*
-  //Default Location
-  state = {
-         region: {
-           latitude: 33.6404952,
-           longitude: -117.8442962,
-           latitudeDelta: 0.0500,
-           longitudeDelta: 0.0200,
-         },
-         circle: {
-           latitude: 33.6404952,
-           longitude: -117.8442962
-         },
-         chatRooms: [
-         ]
-       };*/
+   //Current Postition of the user
+   state = {
+      longitude: null,
+      latitude: null,
+      error:null,
+    };
 
-  //This will run when button is pressed
+  //handleSubmit will run when button is pressed to create a new chat
+  //Get current lat/lng and get name of chat and push to database
   handleSubmit = async () => {
+
     console.log("handleSubmit entered");
+
     // use that ref to get the form value
     const value = this._form.getValue();
 
-    /*
-    //Get the current position and set state
-    Geolocation.getCurrentPosition(
-      (position) => {
-        this.setState(previousState => ({
-          region: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            latitudeDelta: previousState.region.latitudeDelta,
-            longitudeDelta: previousState.region.longitudeDelta,
-          },
-          circle: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          }
-        }));
-      },
-      (error) => {
-        console.warn('geolocation failure: ' + error.message);
-        this.setState({ error: error.message });
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
-    );
+    // Get the current Position of the user
+    navigator.geolocation.getCurrentPosition(
+       (position) => {
+         this.setState({
+           longitude: position.coords.longitude,
+           latitude: position.coords.latitude,
+           error: null,
+         });
+       },
+       (error) => this.setState({ error: error.message }),
+       { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
+     );
 
-    */
-
-    const todoDetails = {
-      value: value,
+    //Mutation
+    const createChat = {
+      name: value.username,
+      longitude: this.state.longitude,
+      latitude: this.state.latitude,
     };
 
     console.log("values:", value);
-
-    const newTodo = await API.graphql(graphqlOperation(mutations.createTodo, {input: todoDetails}));
+    
+    const createNewChatRoom = await API.graphql(graphqlOperation(mutations.createChatRoom, {input: createChat}));
     console.log("hello");
-    console.log(newTodo);
-    /*
-    async () => {
-        //Mutation -  used to create or update data with GraphQ
-      const newTodo = await API.graphql(graphqlOperation(mutations.createTodo, {input: todoDetails}));
-      console.log("hello");
-      console.log(newTodo);
-    };*/
+    console.log(createChat);
   }
 
   render() {
