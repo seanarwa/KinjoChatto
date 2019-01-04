@@ -6,17 +6,17 @@ React Native mobile application that allows users in the same area to form a tem
 
 | Status | Task | Assigned |
 | ------------- | ------------- | ------------- |
-|  | Some task | Sean Chang |
-|  | Some task | Andrew Nguyen |
-|  | Some task | Junya Honda |
+| ✔️ | Some task | Sean Chang |
+| ❌ | Some task | Andrew Nguyen |
+| IP | Some task | Junya Honda |
 
 ### Bug Fixes
 
 | Status | Bug | Assigned |
 | ------------- | ------------- | ------------- |
-|  | Some bug | Sean Chang |
-|  | Some bug | Andrew Nguyen |
-|  | Some bug | Junya Honda |
+| ✔️ | Some bug | Sean Chang |
+| ❌ | Some bug | Andrew Nguyen |
+| IP | Some bug | Junya Honda |
 
 ### Team
 
