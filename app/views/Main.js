@@ -13,9 +13,10 @@ import Login from './Login.js';
 import ChatMap from '../components/main/map/ChatMap.js';
 import MyChat from '../components/main/chat/Chat.js';
 
+
 export default class Main extends Component<{}> {
+
   render() {
-    const { navigate } = this.props.navigation;
 
     return (
         <View style={{flex: 1, justifyContent: 'flex-end'}}>

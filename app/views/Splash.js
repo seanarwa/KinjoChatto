@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {StackNavigator} from 'react-navigation';
 import {Platform, View, Text, StyleSheet } from 'react-native';
 
-
+import { StackActions, NavigationActions } from 'react-navigation';
 
 export default class Splash extends Component<{}> {
 
@@ -13,7 +13,14 @@ export default class Splash extends Component<{}> {
 	componentWillMount()
 	{
 	  setTimeout(()=>{
-	    this.props.navigation.navigate('Main');
+	    //this.props.navigation.navigate('Main');
+	    const resetAction = StackActions.reset({
+	      index: 0,
+	      actions: [NavigationActions.navigate({ routeName: 'Main' })],
+	    });
+	    this.props.navigation.dispatch(resetAction);
+	    
+	    const { navigate } = this.props.navigation;
 	  },3000)
 	}
 
