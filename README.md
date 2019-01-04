@@ -4,14 +4,14 @@ React Native mobile application that allows users in the same area to form a tem
 
 ### Version
 
-| Version | Release | Commit Hash |
-| ------------- | ------------- | ------------- |
-| 0.0.1 | Dev | Some hash |
-| 0.1.0 | Alpha | Some hash |
-| 1.0.0 | Stable | Some hash |
-| 1.1.0 | Beta | Some hash |
+| Version | Release |
+| ------------- | ------------- |
+| [0.1.0]([LINK 0.1.0]) | Dev |
+| 0.1.0 | Alpha |
+| 1.0.0 | Stable |
+| 1.1.0 | Beta |
 
-
+[LINK 0.1.0]: https://github.com/seanarwa/KinjoChatto/commit/0e03ea4d5258e5edba655a659e5167cc8442ff38
 
 ### Team
 
