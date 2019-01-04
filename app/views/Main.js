@@ -22,11 +22,21 @@ export default class Main extends Component<{}> {
 
     return (
         <View style={{flex: 1, justifyContent: 'flex-end'}}>
-          <ChatMap navigator={this.props.navigation} />
-          <Button
-            title='Create Chat'
-            onPress={() => navigate('NewChat')}
+          <ChatMap
+            ref='chatMap'
+            navigator={this.props.navigation}
           />
+          <View>
+            <Button
+              title='Refresh Map'
+              onPress={() => this.refs.chatMap.refresh()}
+            />
+            <View style={{height: 10}} />
+            <Button
+              title='Create Chat'
+              onPress={() => navigate('NewChat')}
+            />
+          </View>
         </View>
     );
   }

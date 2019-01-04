@@ -86,6 +86,10 @@ import { listChatRooms } from '../../../../src/graphql/queries.js';
     })();
   }
 
+  refresh() {
+    this.fetchData();
+  }
+
 	render() {
     const ChatRoomMarkers = this.state.chatRooms.map((chatRoom) =>
       <ChatRoomMarker key={chatRoom.id} navigator={this.props.navigator} chatRoom={chatRoom} />
