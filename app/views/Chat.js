@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Button } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 
 import { API, graphqlOperation } from 'aws-amplify';
 import { listMessages } from '../../src/graphql/queries.js';
-import { createMessage } from '../../src/graphql/mutations.js';
+import { createMessage, deleteChatRoom } from '../../src/graphql/mutations.js';
 
 export default class Chat extends React.Component {
       state = {
@@ -72,14 +72,35 @@ export default class Chat extends React.Component {
         return messages;
       }
 
+      deleteChatRoom() {
+        (async () => {
+            API.graphql(graphqlOperation(deleteChatRoom, {
+              input: {
+                id: this.getParams().chatRoomId
+              }
+            })).then((data) => {
+              if (data) {
+                const { goBack } = this.props.navigation;
+                goBack();
+              }
+            });
+        })();
+      }
+
       render() {
         const messages = this.loadMessages();
 
         return (
-          <GiftedChat
-            messages={messages}
-            onSend={message => this.sendMessage(message[0].text)}
-          />
+          <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+            <GiftedChat
+              messages={messages}
+              onSend={message => this.sendMessage(message[0].text)}
+            />
+            <View>
+              <Button title="Refresh" onPress={this.fetchMessages.bind(this)} />
+              <Button title="Delete" color='#FF3333' onPress={this.deleteChatRoom.bind(this)} />
+            </View>
+          </View>
         );
       }
     }
