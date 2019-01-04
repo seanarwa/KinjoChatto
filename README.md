@@ -6,12 +6,12 @@ React Native mobile application that allows users in the same area to form a tem
 
 | Version | Release |
 | ------------- | ------------- |
-| 0.1.0 | Dev |
+| [0.1.0][LINK_1] | Dev |
 | 0.9.0 | Alpha |
 | 1.0.0 | Stable |
 | 1.1.0 | Beta |
 
-[0.1.0]: https://github.com/seanarwa/KinjoChatto/commit/0e03ea4d5258e5edba655a659e5167cc8442ff38
+[LINK_1]: https://github.com/seanarwa/KinjoChatto/commit/0e03ea4d5258e5edba655a659e5167cc8442ff38
 
 ### Team
 
