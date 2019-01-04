@@ -18,6 +18,8 @@ export default class Main extends Component<{}> {
 
   render() {
 
+    const { navigate } = this.props.navigation;
+
     return (
         <View style={{flex: 1, justifyContent: 'flex-end'}}>
           <ChatMap navigator={this.props.navigation} />

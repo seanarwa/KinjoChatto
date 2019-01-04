@@ -21,14 +21,14 @@ Amplify.configure(awsmobile);
 
 const AppNavigator = createStackNavigator(
   {
-    Home: { screen: Splash },
+    Splash: { screen: Splash },
     Main: { screen: Main },
     Login: { screen: Login },
     Chat: { screen: Chat },
     NewChat: { screen: NewChat }
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'Splash'
   }
 );
 
