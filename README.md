@@ -7,7 +7,7 @@ React Native mobile application that allows users in the same area to form a tem
 | Version | Release |
 | ------------- | ------------- |
 | 0.1.0 | Dev |
-| 0.1.0 | Alpha |
+| 0.9.0 | Alpha |
 | 1.0.0 | Stable |
 | 1.1.0 | Beta |
 
