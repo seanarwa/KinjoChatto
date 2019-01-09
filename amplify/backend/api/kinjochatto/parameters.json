@@ -2,12 +2,12 @@
     "AppSyncApiName": "kinjochatto",
     "AuthCognitoUserPoolId": {
         "Fn::GetAtt": [
-            "authcognitoe8454242",
+            "authkinjochatto",
             "Outputs.UserPoolId"
         ]
     },
-    "schemaGraphql": "s3://injohatto-20181222040708-deployment/amplify-appsync-files/schema.graphql.1546152322092",
-    "ResolverBucket": "injohatto-20181222040708-deployment",
+    "schemaGraphql": "s3://injohatto-20190104010559-deployment/amplify-appsync-files/schema.graphql.1546597888190",
+    "ResolverBucket": "injohatto-20190104010559-deployment",
     "ResolverRootKey": "amplify-appsync-files",
-    "DeploymentTimestamp": "1546152322092"
+    "DeploymentTimestamp": "1546597888190"
 }

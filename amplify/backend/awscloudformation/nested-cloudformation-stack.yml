@@ -78,72 +78,76 @@
 				}
 			}
 		},
-		"authcognitoe8454242": {
+		"authkinjochatto": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/auth/cognitoe8454242-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/injohatto-20190104010559-deployment/amplify-cfn-templates/auth/kinjochatto-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "cognitoe8454242_identitypool_e8454242",
+					"identityPoolName": "kinjochatto",
 					"allowUnauthenticatedIdentities": false,
-					"thirdPartyAuth": false,
-					"lambdaLogPolicy": "cognitoe8454242_lambda_log_policy",
-					"openIdLambdaRoleName": "cognitoe8454242_openid_lambda_role",
-					"openIdRolePolicy": "cognitoe8454242_openid_pass_role_policy",
-					"openIdLambdaIAMPolicy": "cognitoe8454242_openid_lambda_iam_policy",
-					"openIdLogPolicy": "cognitoe8454242_openid_lambda_log_policy",
-					"userPoolName": "cognitoe8454242_userpool_e8454242",
+					"thirdPartyAuth": true,
+					"lambdaLogPolicy": "kinjochatto_lambda_log_policy",
+					"openIdLambdaRoleName": "kinjochatto_openid_lambda_role",
+					"openIdRolePolicy": "kinjochatto_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "kinjochatto_openid_lambda_iam_policy",
+					"openIdLogPolicy": "kinjochatto_openid_lambda_log_policy",
+					"userPoolName": "kinjo-chatto",
 					"autoVerifiedAttributes": "email",
 					"mfaConfiguration": "OFF",
 					"mfaTypes": "SMS Text Message",
-					"roleName": "cognitoe8454242_sns-role",
-					"roleExternalId": "cognitoe8454242_role_external_id",
-					"policyName": "cognitoe8454242-sns-policy",
+					"roleName": "kinjochatto_sns-role",
+					"roleExternalId": "kinjochatto_role_external_id",
+					"policyName": "kinjochatto-sns-policy",
 					"smsAuthenticationMessage": "Your authentication code is {####}",
 					"smsVerificationMessage": "Your verification code is {####}",
 					"emailVerificationSubject": "Your verification code",
 					"emailVerificationMessage": "Your verification code is {####}",
-					"defaultPasswordPolicy": false,
+					"defaultPasswordPolicy": true,
 					"passwordPolicyMinLength": 8,
-					"passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
+					"passwordPolicyCharacters": "",
 					"requiredAttributes": "email",
-					"userpoolClientName": "cognitoe8454242_app_client",
+					"userpoolClientName": "kinjochatto_app_client",
 					"userpoolClientGenerateSecret": true,
 					"userpoolClientRefreshTokenValidity": 30,
 					"userpoolClientReadAttributes": "email",
-					"mfaLambdaRole": "cognitoe8454242_totp_lambda_role",
-					"mfaLambdaLogPolicy": "cognitoe8454242_totp_lambda_log_policy",
-					"mfaPassRolePolicy": "cognitoe8454242_totp_pass_role_policy",
-					"mfaLambdaIAMPolicy": "cognitoe8454242_totp_lambda_iam_policy",
-					"userpoolClientLambdaRole": "cognitoe8454242_userpoolclient_lambda_role",
-					"userpoolClientLogPolicy": "cognitoe8454242_userpoolclient_lambda_log_policy",
-					"userpoolClientLambdaPolicy": "cognitoe8454242_userpoolclient_lambda_iam_policy",
+					"mfaLambdaRole": "kinjochatto_totp_lambda_role",
+					"mfaLambdaLogPolicy": "kinjochatto_totp_lambda_log_policy",
+					"mfaPassRolePolicy": "kinjochatto_totp_pass_role_policy",
+					"mfaLambdaIAMPolicy": "kinjochatto_totp_lambda_iam_policy",
+					"userpoolClientLambdaRole": "kinjochatto_userpoolclient_lambda_role",
+					"userpoolClientLogPolicy": "kinjochatto_userpoolclient_lambda_log_policy",
+					"userpoolClientLambdaPolicy": "kinjochatto_userpoolclient_lambda_iam_policy",
 					"userpoolClientSetAttributes": false,
-					"useDefault": "default",
-					"unAuthRoleName": "injohatto-20181222040708-unauthRole",
-					"authRoleName": "injohatto-20181222040708-authRole",
-					"unAuthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-unauthRole",
-					"authRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-authRole",
-					"resourceName": "cognitoe8454242",
-					"authSelections": "identityPoolAndUserPool"
+					"useDefault": "manual",
+					"authSelections": "identityPoolAndUserPool",
+					"resourceName": "kinjochatto",
+					"authProviders": "graph.facebook.com,accounts.google.com",
+					"facebookAppId": "1998769396855437",
+					"googleClientId": "427847741904-6jkupmgqtjkdt5qmvr6kujotr2mkq5ve.apps.googleusercontent.com",
+					"selectedParties": "{\"graph.facebook.com\":\"1998769396855437\",\"accounts.google.com\":\"427847741904-6jkupmgqtjkdt5qmvr6kujotr2mkq5ve.apps.googleusercontent.com\"}",
+					"unAuthRoleName": "injohatto-20190104010559-unauthRole",
+					"authRoleName": "injohatto-20190104010559-authRole",
+					"unAuthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20190104010559-unauthRole",
+					"authRoleArn": "arn:aws:iam::689668396068:role/injohatto-20190104010559-authRole"
 				}
 			}
 		},
 		"apikinjochatto": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/injohatto-20190104010559-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
 					"AppSyncApiName": "kinjochatto",
 					"AuthCognitoUserPoolId": {
 						"Fn::GetAtt": [
-							"authcognitoe8454242",
+							"authkinjochatto",
 							"Outputs.UserPoolId"
 						]
 					},
-					"schemaGraphql": "s3://injohatto-20181222040708-deployment/amplify-appsync-files/schema.graphql.1546152322092",
-					"ResolverBucket": "injohatto-20181222040708-deployment",
+					"schemaGraphql": "s3://injohatto-20190104010559-deployment/amplify-appsync-files/schema.graphql.1546597888190",
+					"ResolverBucket": "injohatto-20190104010559-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1546152322092"
+					"DeploymentTimestamp": "1546597888190"
 				}
 			}
 		}

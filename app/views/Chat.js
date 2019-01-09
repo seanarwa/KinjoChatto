@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Button } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 
-import { API, graphqlOperation } from 'aws-amplify';
-import { listMessages } from '../../src/graphql/queries.js';
+import { Auth, API, graphqlOperation } from 'aws-amplify';
+import { getChatRoom } from '../../src/graphql/queries.js';
 import { createMessage, deleteChatRoom } from '../../src/graphql/mutations.js';
 
 export default class Chat extends React.Component {
@@ -18,53 +18,51 @@ export default class Chat extends React.Component {
 
       getParams() {
         const { navigation } = this.props;
-        const chatRoomId = navigation.getParam('chatRoomId', 'NO-ID');
-        const title = navigation.getParam('title', 'NO-TITLE');
+        const chatRoom = navigation.getParam('chatRoom', 'ERROR');
         return ({
-          title,
-          chatRoomId
+          chatRoom
         });
       }
 
       fetchMessages() {
         (async () => {
-            const data = await API.graphql(graphqlOperation(listMessages, {
-              filter: {
-                chatRoomId: {
-                  eq: this.getParams().chatRoomId
-                }
-              },
-              limit: 20,
-              nextToken: this.state.nextToken
+            const data = await API.graphql(graphqlOperation(getChatRoom, {
+              id: this.getParams().chatRoom.id
             }));
             this.setState({
-                messages: data.data.listMessages.items,
-                nextToken: data.data.listMessages.nextToken
+                messages: data.data.getChatRoom.messages.items,
+                nextToken: data.data.getChatRoom.messages.nextToken
             });
         })();
       }
 
       sendMessage(message) {
         (async () => {
+          Auth.currentAuthenticatedUser()
+          .then(user => {
             API.graphql(graphqlOperation(createMessage, {
               input: {
                 content: message,
-                chatRoomId: this.getParams().chatRoomId
+                messageChatRoomId: this.getParams().chatRoom.id,
+                messageSenderId: user.attributes.sub
               }
             }));
+          })
+          .catch(err => console.log(err));
         })();
       }
 
       loadMessages() {
         const messages = [];
+        console.log(this.state.messages);
         this.state.messages.forEach(message => {
           messages.push({
             _id: message.id,
             text: message.content,
             createdAt: message.createdAt,
             user: {
-              _id: 1,
-              name: 'React Native',
+              _id: message.user.id,
+              name: message.user.username,
               avatar: 'https://placeimg.com/140/140/any'
             }
           });
@@ -76,7 +74,7 @@ export default class Chat extends React.Component {
         (async () => {
             API.graphql(graphqlOperation(deleteChatRoom, {
               input: {
-                id: this.getParams().chatRoomId
+                chatRoom: this.getParams().chatRoom
               }
             })).then((data) => {
               if (data) {

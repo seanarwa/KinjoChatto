@@ -2,7 +2,7 @@ projects:
   kinjochatto:
     schemaPath: src\graphql\schema.json
     includes:
-      - src\graphql\**\*.js
+      - app\graphql\**\*.js
     excludes:
       - amplify/**
     extensions:
@@ -10,7 +10,7 @@ projects:
         codeGenTarget: javascript
         generatedFileName: ''
         docsFilePath: src\graphql
-        graphQLApiId: uiwcmqf7i5b63g2id3vbmguzxi
+        graphQLApiId: pjqzd3qpivdmblkbd6ue5zsbri
       endpoints:
         prod: >-
-          https://cqjm5zlg4nge5d4ajno5ccsdhq.appsync-api.us-west-2.amazonaws.com/graphql
+          https://2xi2fekkjrd35e3rkwwtr4lkbu.appsync-api.us-west-2.amazonaws.com/graphql

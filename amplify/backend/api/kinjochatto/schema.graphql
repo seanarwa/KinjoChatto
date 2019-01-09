@@ -4,13 +4,23 @@ type ChatRoom @model {
   name: String!
   longitude: String
   latitude: String
+  messages: [Message] @connection(name: "ChatRoomMessages")
 }
 
 type Message @model {
 	content: String!
-	chatRoomId: ID!
 	createdAt: String
 	id: ID!
-	isSent: Boolean
-	sender: String
+  chatRoom: ChatRoom @connection(name: "ChatRoomMessages")
+  sender: User @connection(name: "UserMessages")
+}
+
+type User @model {
+  id: ID!
+  username: String!
+  email: String
+  emailVerified: Boolean
+  phoneNumber: String
+  phoneNumberVerified: Boolean
+  messages: [Message] @connection(name: "UserMessages")
 }

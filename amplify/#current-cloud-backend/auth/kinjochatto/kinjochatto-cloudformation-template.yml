@@ -110,6 +110,24 @@ Parameters:
   useDefault:
     Type: String
             
+  authSelections:
+    Type: String
+            
+  resourceName:
+    Type: String
+                  
+  authProviders:
+    Type: CommaDelimitedList
+      
+  facebookAppId:
+    Type: String
+            
+  googleClientId:
+    Type: String
+            
+  selectedParties:
+    Type: String
+            
   unAuthRoleName:
     Type: String
             
@@ -120,12 +138,6 @@ Parameters:
     Type: String
             
   authRoleArn:
-    Type: String
-            
-  resourceName:
-    Type: String
-            
-  authSelections:
     Type: String
           
 Resources:
@@ -183,10 +195,10 @@ Resources:
       Policies:
         PasswordPolicy:
           MinimumLength: !Ref passwordPolicyMinLength
-          RequireLowercase: true
-          RequireNumbers: true
-          RequireSymbols: true
-          RequireUppercase: true
+          RequireLowercase: false
+          RequireNumbers: false
+          RequireSymbols: false
+          RequireUppercase: false
       MfaConfiguration: !Ref mfaConfiguration
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsConfiguration: 
@@ -198,7 +210,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: cognitoe8454242_app_clientWeb
+      ClientName: kinjochatto_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -325,7 +337,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties: 
-      IdentityPoolName: cognitoe8454242_identitypool_e8454242
+      IdentityPoolName: kinjochatto
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient
@@ -337,6 +349,15 @@ Resources:
             - cognito-idp.${region}.amazonaws.com/${client}
             - { region: !Ref "AWS::Region",  client: !Ref UserPool}
             
+      SupportedLoginProviders: 
+        
+          
+          graph.facebook.com: '1998769396855437'
+                  
+          
+          accounts.google.com: '427847741904-6jkupmgqtjkdt5qmvr6kujotr2mkq5ve.apps.googleusercontent.com'
+                   
+      
       AllowUnauthenticatedIdentities: !Ref allowUnauthenticatedIdentities
        
        
@@ -378,8 +399,14 @@ Outputs :
   AppClientSecret:
     Value: !GetAtt UserPoolClientInputs.appSecret
   
+  
+  GoogleWebClient:
+    Value: 427847741904-6jkupmgqtjkdt5qmvr6kujotr2mkq5ve.apps.googleusercontent.com
    
    
   
+  
+  FacebookWebClient:
+    Value: 1998769396855437
    
   

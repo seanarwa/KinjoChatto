@@ -1,35 +1,37 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "injohatto-20181222040708-authRole",
-			"UnauthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20181222040708-authRole",
+			"AuthRoleName": "injohatto-20190104010559-authRole",
+			"UnauthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20190104010559-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::689668396068:role/injohatto-20190104010559-authRole",
 			"Region": "us-west-2",
-			"DeploymentBucketName": "injohatto-20181222040708-deployment",
-			"UnauthRoleName": "injohatto-20181222040708-unauthRole",
-			"StackName": "injohatto-20181222040708",
-			"StackId": "arn:aws:cloudformation:us-west-2:689668396068:stack/injohatto-20181222040708/1ad1b6d0-05e2-11e9-9808-0650fec6e554"
+			"DeploymentBucketName": "injohatto-20190104010559-deployment",
+			"UnauthRoleName": "injohatto-20190104010559-unauthRole",
+			"StackName": "injohatto-20190104010559",
+			"StackId": "arn:aws:cloudformation:us-west-2:689668396068:stack/injohatto-20190104010559/f35fcdd0-0fff-11e9-a16c-02559443042e"
 		}
 	},
 	"auth": {
-		"cognitoe8454242": {
+		"kinjochatto": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/auth/cognitoe8454242-cloudformation-template.yml",
-				"logicalId": "authcognitoe8454242"
+				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20190104010559-deployment/amplify-cfn-templates/auth/kinjochatto-cloudformation-template.yml",
+				"logicalId": "authkinjochatto"
 			},
-			"lastPushTimeStamp": "2018-12-30T06:47:34.257Z",
+			"lastPushTimeStamp": "2019-01-04T10:33:04.042Z",
 			"output": {
-				"AppClientSecret": "11grln9idubta47eg6vfaa4q8khnlta2ujf2fk8p09nav1bdqlq6",
-				"UserPoolId": "us-west-2_NQP8RYOak",
-				"AppClientIDWeb": "10unhiso9gc7fi9f80l1ckr63h",
-				"AppClientID": "41i678p15ml9dqhk7hhhnn9lfn",
-				"IdentityPoolId": "us-west-2:69d58a04-28b0-4bbe-949e-adadb8150115",
-				"IdentityPoolName": "cognitoe8454242_identitypool_e8454242",
-				"UserPoolName": "cognitoe8454242_userpool_e8454242"
+				"GoogleWebClient": "427847741904-6jkupmgqtjkdt5qmvr6kujotr2mkq5ve.apps.googleusercontent.com",
+				"AppClientSecret": "1dstnis8pe92mrmg0v3jcn4v0vq8crd23134fmr299koiq648gup",
+				"UserPoolId": "us-west-2_OPGgxA6uG",
+				"AppClientIDWeb": "5khatfudt40muvbaa3nipdc8ud",
+				"AppClientID": "1np15891eltcav6iu7qq5rgbkf",
+				"FacebookWebClient": "1998769396855437",
+				"IdentityPoolId": "us-west-2:03510299-fb40-4e52-9ad7-025e3f5d1221",
+				"IdentityPoolName": "kinjochatto",
+				"UserPoolName": "kinjo-chatto"
 			},
-			"lastPushDirHash": "sER5YxJzTWcZaLH8DWkTT4Ztud8="
+			"lastPushDirHash": "no19gI/MaA+mgEJSSGDoxxHKOUw="
 		}
 	},
 	"api": {
@@ -38,19 +40,19 @@
 			"providerPlugin": "awscloudformation",
 			"output": {
 				"securityType": "AMAZON_COGNITO_USER_POOLS",
-				"GraphQLAPIIdOutput": "uiwcmqf7i5b63g2id3vbmguzxi",
-				"GraphQLAPIEndpointOutput": "https://cqjm5zlg4nge5d4ajno5ccsdhq.appsync-api.us-west-2.amazonaws.com/graphql",
-				"GraphQLAPIKeyOutput": "da2-csojgajmfvf2lm42tjfgtptmo4",
-				"AuthCognitoUserPoolIdOutput": "us-west-2_NQP8RYOak",
-				"AuthCognitoUserPoolNativeClientId": "See UserPool: us-west-2_NQP8RYOak",
-				"AuthCognitoUserPoolJSClientId": "See UserPool: us-west-2_NQP8RYOak"
+				"GraphQLAPIIdOutput": "pjqzd3qpivdmblkbd6ue5zsbri",
+				"GraphQLAPIEndpointOutput": "https://2xi2fekkjrd35e3rkwwtr4lkbu.appsync-api.us-west-2.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-aafhv5bhfrc2rbtyegsxysoidu",
+				"AuthCognitoUserPoolIdOutput": "us-west-2_OPGgxA6uG",
+				"AuthCognitoUserPoolNativeClientId": "See UserPool: us-west-2_OPGgxA6uG",
+				"AuthCognitoUserPoolJSClientId": "See UserPool: us-west-2_OPGgxA6uG"
 			},
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20181222040708-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"s3TemplateURL": "https://s3.amazonaws.com/injohatto-20190104010559-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apikinjochatto"
 			},
-			"lastPushTimeStamp": "2018-12-30T06:47:35.740Z",
-			"lastPushDirHash": "d2EmfldDwUk3h70EjL+Sk2uZpnE="
+			"lastPushTimeStamp": "2019-01-04T10:33:05.061Z",
+			"lastPushDirHash": "xCHVC6w9USk3eAxJT1HOd0AwKYs="
 		}
 	}
 }

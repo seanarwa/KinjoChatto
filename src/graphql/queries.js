@@ -8,6 +8,14 @@ export const getChatRoom = `query GetChatRoom($id: ID!) {
     name
     longitude
     latitude
+    messages {
+      items {
+        content
+        createdAt
+        id
+      }
+      nextToken
+    }
   }
 }
 `;
@@ -23,6 +31,9 @@ export const listChatRooms = `query ListChatRooms(
       name
       longitude
       latitude
+      messages {
+        nextToken
+      }
     }
     nextToken
   }
@@ -31,11 +42,29 @@ export const listChatRooms = `query ListChatRooms(
 export const getMessage = `query GetMessage($id: ID!) {
   getMessage(id: $id) {
     content
-    chatRoomId
     createdAt
     id
-    isSent
-    sender
+    chatRoom {
+      createdAt
+      id
+      name
+      longitude
+      latitude
+      messages {
+        nextToken
+      }
+    }
+    sender {
+      id
+      username
+      email
+      emailVerified
+      phoneNumber
+      phoneNumberVerified
+      messages {
+        nextToken
+      }
+    }
   }
 }
 `;
@@ -47,11 +76,63 @@ export const listMessages = `query ListMessages(
   listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       content
-      chatRoomId
       createdAt
       id
-      isSent
-      sender
+      chatRoom {
+        createdAt
+        id
+        name
+        longitude
+        latitude
+      }
+      sender {
+        id
+        username
+        email
+        emailVerified
+        phoneNumber
+        phoneNumberVerified
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getUser = `query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    username
+    email
+    emailVerified
+    phoneNumber
+    phoneNumberVerified
+    messages {
+      items {
+        content
+        createdAt
+        id
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const listUsers = `query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      email
+      emailVerified
+      phoneNumber
+      phoneNumberVerified
+      messages {
+        nextToken
+      }
     }
     nextToken
   }
